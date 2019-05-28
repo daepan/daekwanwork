@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=scale-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="stylesheet" href="/css/nanumbarungothic.css">
+      <link href="http://localhost/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://ajax.googleleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+      <link rel="stylesheet" type="text/css" href="http://localhost/newstyle.css">
+  <title>login page</title>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
+
+  <script type="text/javascript">
+
+  </script>
+      </head>
+  <body>
+    <nav class="navbar navbar-expand-lg ">
+    <a class="navbar-brand" href="#">홈페이지</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">로그인</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="#">회원가입</a>
+       </li>
+      </ul>
+    </div>
+  </nav>
+	<div class="row justify-content-center section_1">
+    <div class="col-6">
+      <form action="#">
+        <div class="form-group">
+          <label for="email">이메일</label>
+          <input type="email"name="form-control id" id="email">
+          <input type="button" id="target" value="이메일확인" />
+          <script>
+            var t = document.getElementById('target');
+            var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+              t.addEventListener('click', function(event){
+                if(email==regExp){
+                  alert('사용 가능한 이메일 입니다., '+event.target.value);
+                }else {
+                  alert('이메일 형식을 맞춰주십시오');
+                }
+            });
+        </script>
+        </div>
+        <div class="form-group">
+          <label for="pwd">패스워드</label>
+          <input type="password" name="form-control pwd" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd-check">패스워드 확인</label>
+          <input type="password" name="form-control pwd-check" id="pwd-check">
+        </div>
+
+        <div class="form-group">
+          <label for="student-number">학번</label>
+          <input type="number" name="form-control studen-number" id="student-number">
+        </div>
+        <div class="form-group major">
+          <label for="major">학과</label>
+          <select class="form-control major" id="major">
+            <option>컴퓨터공학과</option>
+            <option>기계공학과</option>
+            <option>에너지신소재공학과</option>
+            <option>디자인/건축공학과</option>
+            <option>메카트로닉스공학과</option>
+            <option>산업경영공학과</option>
+            <option>전자통신공학과</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone-number">전화번호 확인</label>
+          <input type="text" name="form-control phone-number" id="phone-number">
+        </div>
+        <button type="button" class="btn btn-primary-signup" id="check">회원가입 버튼</button>
+        <script type="text/javascript">
+            var t = document.getElementById('check');
+            t.addEventListener("click", function(event){
+              var id = document.getElementById("email").value;
+              var pwd= document.getElementById("pwd").value;
+              var pwd-check=document.getElementById("pwd-check").value;
+              var student-number=document.getElementById("student-number").value;
+              var phone-number=document.getElementById("phone-number").value;
+              if(id==""||pwd==""||pwd-check==""||student-number==""||phone-number==""){
+                alert("빈칸을 입력하여 주십시오.,"+event.check.value);
+              }else if(pwd!=pwd-check){
+                alert("패스워드가 서로 다릅니다.");
+              }else{
+                alert("가입완료");
+              }
+            });
+        </script>
+        <button type="button" class="btn btn-danger cancel">취소 버튼</button>
+      </form>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://localhost/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+</body>
+<div class="footer-header">
+  footer
+</div>
+  <div class="footer-body">
+  </div>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=qw04011@gmail.com&su=SUBJECT&body=BODY&bcc=qw04011@gmail.com"
+  class="btn btn-developer">developer gmail</a>
+</div>
+</html>

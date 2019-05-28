@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=scale-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+      <link href="http://localhost/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs.popper.js/1.14.7/umd.popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="http://localhost/newstyle.css">
+  <title>login page</title>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
+      </head>
+  <body>
+    <nav class="navbar navbar-expand-lg ">
+    <a class="navbar-brand" href="#">홈페이지</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">로그인</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="#">회원가입</a>
+       </li>
+      </ul>
+    </div>
+  </nav>
+	<div class="row justify-content-center section_1">
+    <div class="col-6">
+      <form action="/signUp.php">
+        <div class="form-group">
+          <label for="email">이메일</label>
+          <input name="form-control id" id="email">
+        </div>
+        <div class="form-group">
+          <label for="pwd">패스워드</label>
+          <input type="password" name="form-control pwd" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd-check">패스워드 확인</label>
+          <input type="password" name="form-control pwd-check" id="pwd-check">
+        </div>
+        <div class="form-group">
+          <label for="student-number">학번</label>
+          <input type="number" name="form-control studen-number" id="student-number">
+        </div>
+        <div class="form-group major">
+          <label for="major">학과</label>
+          <select class="form-control major" id="major">
+            <option>컴퓨터공학과</option>
+            <option>기계공학과</option>
+            <option>에너지신소재공학과</option>
+            <option>디자인/건축공학과</option>
+            <option>메카트로닉스공학과</option>
+            <option>산업경영공학과</option>
+            <option>전자통신공학과</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone-number">전화번호 확인</label>
+          <input type="text" name="form-control phone-number" id="phone-number">
+        </div>
+        <button type="submit" onclick="verify" class="btn btn-primary-signup">회원가입 버튼</button>
+        <button type="button" class="btn btn-danger cancel">취소 버튼</button>
+        </div>
+
+      </form>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://localhost/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+</body>
+<div class="footer-header">
+  footer
+</div>
+  <div class="footer-body">
+  </div>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=qw04011@gmail.com&su=SUBJECT&body=BODY&bcc=qw04011@gmail.com"
+  class="btn btn-developer">developer gmail</a>
+</div>
+</html>
