@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial=scale-1">
+    <meta name="viewport" content="width=device-width, initial-scale-1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <link href="http://localhost/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="http://localhost/newstyle.css">
+      <link rel="stylesheet" type="text/css" href="http://localhost/myhomepage/newstyle.css">
 
   <title>login page</title>
   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
@@ -27,72 +26,50 @@
   </nav>
 	<div class="row justify-content-center section_1">
     <div class="col-6">
-      <form action="#">
+      <form action="#" id="check  ">
         <div class="form-group">
           <label for="email">이메일</label>
           <input type="email"name="form-control id" id="email">
-          <input type="button" id="target" value="이메일확인" />
-          <script>
-            var t = document.getElementById('target');
-            var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-              t.addEventListener('click', function(event){
-                if(email==regExp){
-                  alert('사용 가능한 이메일 입니다.');
-                }else {
-                  alert('이메일 형식을 맞춰주십시오');
-                }
-            });
-        </script>
         </div>
-        <div class="form-group">
-          <label for="pwd">패스워드</label>
-          <input type="password" name="form-control pwd" id="pwd">
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <div class="form-group">
+                  <label for="pwd">패스워드</label>
+                  <input type="password" name="form-control pwd" id="pwd">
+                </div>
+              </div>
+              <div class="col-6 col-sm-5">
+                <div class="form-group">
+                  <label for="pwd-check">패스워드 확인</label>
+                  <input type="password" name="form-control pwd-check" id="pwd-check">
+                </div>
+              </div>
         </div>
-        <div class="form-group">
-          <label for="pwd-check">패스워드 확인</label>
-          <input type="password" name="form-control pwd-check" id="pwd-check">
-        </div>
-
+       
+       
         <div class="form-group">
           <label for="student-number">학번</label>
-          <input type="number" name="form-control studen-number" id="student-number">
-          <script>
-              var studnet_num=document.getElementById('student-number')
-              var regExp=/^+[136]+$/;
-              if(studnet_num==regExp){
-                  
-              }
-          </script>
+          <input type="number" name="form-control student-number" id="student-number">          
         </div>
-        <div class="form-group major">
-          <label for="major">학과</label>
-          <input type="text" class="" placeholder="">
+        <div class="col-sm-5">
+            <div class="form-group major">
+                <label for="major">학과</label>
+                <input type="text" class="form-control major" id="major" placeholder="학번을 먼저 입력하세요">
+              </div>
         </div>
+        
         <div class="form-group">
           <label for="phone-number">전화번호 확인</label>
           <input type="text" name="form-control phone-number" id="phone-number"> 
         </div>
-        <button type="button" class="btn btn-primary-signup" id="check">회원가입 버튼</button>
-        <script type="text/javascript">
-            var t = document.getElementById('check');
-            t.addEventListener("click", function(event){
-              var id = document.getElementById("email").value;
-              var pwd= document.getElementById("pwd").value;
-              var pwd_check=document.getElementById("pwd-check").value;
-              var student_number=document.getElementById("student-number").value;
-              var phone_number=document.getElementById("phone-number").value;
-              if(id==""||pwd==""||pwd_check==""||student_number==""||phone_number==""){
-                alert("빈칸을 입력하여 주십시오.");
-              }else if(pwd!=pwd_check){
-                alert("패스워드가 서로 다릅니다.");
-              }else{
-                alert("가입완료");
-              }
-            });
-        </script>
-        <button type="button" class="btn btn-danger cancel" src="">취소 버튼</button>
+        <button type="submit" class="btn btn-primary-signup" >회원가입 버튼</button>
+        <script src="http://localhost/myhomepage/temp.js"></script>
+        <button type="button" class="btn btn-danger cancel" href="www.google.com">취소 버튼</button>
       </form>
         </div>
+
+
+        
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://localhost/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>

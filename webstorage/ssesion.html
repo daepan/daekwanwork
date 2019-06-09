@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<script type="text/javascript">
+
+	function Writesessionstorage()
+	{
+	   if( document.myform.Id.value == "" ){
+	      alert("값을 입력하시오!");
+	      return;
+	   }
+		 sessionStorage.setItem("name", document.myform.Id.value)
+	   alert("localstorage : " + "ID=" + sessionStorage.getItem("name"));
+	}
+
+	</script>
+	</head>
+	<body>
+	<form name="myform" action="">
+	ID입력 : <input type="text" id="Id" name="Id"/>
+
+	<input type="button" value="쿠키셋팅" onclick="Writesessionstorage();"/>
+	</form>
+	</body>
+</html>

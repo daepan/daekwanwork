@@ -79,24 +79,7 @@
           <label for="phone-number">전화번호 확인</label>
           <input type="text" name="form-control phone-number" id="phone-number">
         </div>
-        <button type="button" class="btn btn-primary-signup" id="check">회원가입 버튼</button>
-        <script type="text/javascript">
-            var t = document.getElementById('check');
-            t.addEventListener("click", function(event){
-              var id = document.getElementById("email").value;
-              var pwd= document.getElementById("pwd").value;
-              var pwd-check=document.getElementById("pwd-check").value;
-              var student-number=document.getElementById("student-number").value;
-              var phone-number=document.getElementById("phone-number").value;
-              if(id==""||pwd==""||pwd-check==""||student-number==""||phone-number==""){
-                alert("빈칸을 입력하여 주십시오.,"+event.check.value);
-              }else if(pwd!=pwd-check){
-                alert("패스워드가 서로 다릅니다.");
-              }else{
-                alert("가입완료");
-              }
-            });
-        </script>
+       
         <button type="button" class="btn btn-danger cancel">취소 버튼</button>
       </form>
         </div>

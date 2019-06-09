@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<script type="text/javascript">
+    var setCookie = function(name, value, day) {
+        var date = new Date();
+        date.setTime(date.getTime() + day * 60 * 60 * 24 * 1000);
+        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+    };
+    var getCookie = function(name) {
+       var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+       return value? value[2] : null;
+   };
+    var deleteCookie = function(name) {
+           var date = new Date();
+           document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
+       }
+
+	function Writeall()
+	{
+	   if( document.myform.customer.value == "" ){
+	      alert("Id를 입력하시오!");
+	      return;
+	   }
+	   setCookie("name", document.myform.customer.value, 3)
+	   alert("쿠키 Cookies : " + "name=" + getCookie("name") );
+
+     sessionStorage.setItem("name", document.myform.customer.value)
+     alert("localstorage : " + "ID=" + sessionStorage.getItem("name"));
+
+    localStorage.setItem("name", document.myform.customer.value)
+    alert("localstorage : " + "ID=" + localStorage.getItem("name"));
+	}
+  function deleteall(){
+    localStorage.removeItem("name");
+    sessionStorage.removeItem("name");
+  }
+	</script>
+	</head>
+	<body>
+	<form name="myform" action="">
+	Id입력 : <input type="text" name="customer"/>
+	<input type="button" value="쿠키셋팅" onclick="Writeall();"/>
+  <input type="button" value="로그아웃" onclick="deleteall();">
+	</form>
+	</body>
+</html>
