@@ -10,23 +10,39 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         .logimg{
-            width: 150px;
+            width: 100%;
             height: auto;
             padding: 5px;
+            margin-top:40px;
         }
         .group{
             padding:5px;
         }
         .main{
-          padding:100px;
+          height:500px;
+          padding:5px;
+          margin : 10px;
+        }
+        .main > .carousel > .carousel-inner > .carousel-item > img{
+          align-items : center;
+        }
+        .article{
+          border:1px solid;
+          padding : 7px;
+          margin : 2px;
+        }
+        body{
+          font-family: 'Nanum Gothic', sans-serif;
         }
 
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>hompage</title>
   </head>
   <body>
         <!-- topnav -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <div class="container"> 
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -59,20 +75,23 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
             </div>
+            </div>
           </nav>
           <!--section 1-->
     <section class='container'>
         <div class="row">
             <div class="col-3">
-                <img src="https://pbs.twimg.com/profile_images/583207950841348096/B5OTNHQs_400x400.jpg" class="logimg">
+                <img src="https://img1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/liveboard/mk/e36b876b022443239474b7e1675875cf.jpg" class="logimg">
                 <nav class="group">
-                        <input type="text" class="inputId" placeholder="Id">
-                        <input type="text" class="inputPw"placeholder="Pw">
+                        <label for="InputId">ID</label>
+                        <input type="text" class="form-control inputId" placeholder="Id">
+                        <label for="InputPw">비밀번호</label>
+                        <input type="text" class="form-control inputPw"placeholder="Pw">
                 </nav>
                 <input type="button" class="btn btn-primary logbtn" value="로그인"></input>
             </div>
             <div class="col-9">
-                <div class="container-main">
+                <div class="main">
                   <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active" data-interval="10000">
@@ -96,25 +115,41 @@
                   </div>
 
                 </div>
-                <h2>주요사항</h2>
+                <h3>주요 사항</h3>
+                
                 <div class="row">
                     <div class="col-4">
-                        <article>
-                           
+                        <article class="article">
+                          <h4>사이퍼즈</h4>
+                          Seesion Cookie : 보통 만료시간을 설정하고 메모리에만 저장되며 브라우저 종료시 쿠키를 삭제한다
+                          Persistent Cookie : 장기간 유지되는 쿠키, 브라우저의 종료와 관계없이 사용한다,
+                          Secure Cookie : HTTPS에만 사용, 쿠키 정보가 암호화되어 전송한다.
+                          Third-Party Cookie : 방문한 도메인과 다른 도메인의 쿠키. 보통 광고  베너 등을 관리할 때 유입 경로를 추적하기 위해 사용한다.
+
     
                         </article>
     
                     </div>
                     <div class="col-4">
-                        <article>
-                           
+                        <article class="article">
+                          <h4>안녕하살법</h4>
+                          Seesion Cookie : 보통 만료시간을 설정하고 메모리에만 저장되며 브라우저 종료시 쿠키를 삭제한다
+                          Persistent Cookie : 장기간 유지되는 쿠키, 브라우저의 종료와 관계없이 사용한다,
+                          Secure Cookie : HTTPS에만 사용, 쿠키 정보가 암호화되어 전송한다.
+                          Third-Party Cookie : 방문한 도메인과 다른 도메인의 쿠키. 보통 광고  베너 등을 관리할 때 유입 경로를 추적하기 위해 사용한다.
+                          
     
                         </article>
     
                     </div>
                     <div class="col-4">
-                        <article>
-                           
+                        <article class="article">
+                          <h4>안녕하살법받아치기</h4>
+                          Seesion Cookie : 보통 만료시간을 설정하고 메모리에만 저장되며 브라우저 종료시 쿠키를 삭제한다
+                          Persistent Cookie : 장기간 유지되는 쿠키, 브라우저의 종료와 관계없이 사용한다,
+                          Secure Cookie : HTTPS에만 사용, 쿠키 정보가 암호화되어 전송한다.
+                          Third-Party Cookie : 방문한 도메인과 다른 도메인의 쿠키. 보통 광고  베너 등을 관리할 때 유입 경로를 추적하기 위해 사용한다.
+                          
                         </article>
     
                     </div>
