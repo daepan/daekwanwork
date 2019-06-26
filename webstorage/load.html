@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>cookie</title>
+  </head>
+  <body>
+    <form class="myform" >
+    쿠키명입력:<input type="text" name="name"><br/>
+    ID입력:<input type="text" name="ID"><br/>
+    PW입력:<input type="text" name="PW"><br/>
+    <input type="button" value="쿠키 셋팅" onclick="WriteCookie();"/>
+    <input type="button" value="Get Cookie" onclick="ReadCookie()"/>
+    </form>
+    <script type="text/javascript">
+      function WriteCookie(){
+        cookieNamevalue=escape(document.myform.name.value)+";";
+        cookieIdvalue=escape(document.myform.ID.value)+";";
+        cookiePwvalue=escape(document.myform.PW.value)+";";
+        document.cookie="cookie_name" + cookieNamevalue;
+        document.cookie="ID" + cookieIdvalue;
+        document.cookie="PW" + cookiePwvalue;    
+        alert("쿠키 Cookie : " + "name=" + cookieNamevalue + "Id="+ cookieIdvalue + "PW=" + cookiePwvalue);
+
+      }
+      function ReadCookie(){
+          var allcookies = document.cookie;
+          cookiearray=allcookies.split(';');
+          for(var i=0; i<cookiearray.length; i++){
+              name=cookiearray[i].split('=')[0];
+              value = cookiearray[i].split('=')[1];
+              alert("키 : " + name + ", 값 : " + value);
+          }
+      }
+    </script>
+  </body>
+</html>
