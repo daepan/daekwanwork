@@ -13,38 +13,26 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>Vue</title>
 </head>
-
+    <input v-focus>
 <body>
-    <div id="app1">
-        <button v-on:click="counter += 1">Add 1</button>
-        <p>위 버튼을 클릭한 횟수는 {{counter}}입니다.</p>
-
-    </div>
-    <div id="app2">
-        <button v-on:click="greet">Greet</button>
-    </div>
-
     <script>
-        var app = new Vue({
-            el: '#app1',
-            data: {
-                counter: 0
+        // 전역 사용자 정의 디렉티브 v-focus 등록
+        Vue.directive('focus', {
+            // 바인딩 된 엘리먼트가 DOM에 삽입되었을 때...
+            inserted: function (el) {
+                // 엘리먼트에 포커스를 줍니다
+                el.focus()
             }
         })
-        var app2 = new Vue({
-            el: '#app2',
-            data: {
-                name: '대관'
-            },
-            // 메소드는 `methods` 객체 안에 정의
-            methods: {
-                greet: function (event) {
-                    alert('Hello ' + this.name + '!')
-                    if (event) {
-                        alert(event.target.tagName)
-                    }
-                    }
-            }})
+        new Vue=({directives: {
+            focus: {
+                // 디렉티브 정의
+                inserted: function (el) {
+                    el.focus()
+                }
+            }
+        }})
+    </script>
 
     </script>
     <!-- Optional JavaScript -->

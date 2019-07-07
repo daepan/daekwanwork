@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--Vue router-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <title>Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello App!</h1>
+        <p>
+            <!-- 탐색을 위해 router-link 구성 요소를 사용하십시오 -->
+            <!-- `to` prop를 전달하여 링크를 지정하십시오.. -->
+            <!-- '<router-link>`는 기본적으로`<a>`태그로 렌더링됩니다 -->
+            <router-link to="/foo">Go to Foo</router-link>
+            <router-link to="/bar">Go to Bar</router-link>
+        </p>
+        <!-- 경로 출구 -->
+        <!-- 경로와 일치하는 구성 요소가 여기 렌더링됩니다 -->
+        <router-view></router-view>
+    </div>
+    <div id="app1">
+
+
+    </div>
+
+    <script>
+        //모듈 시스템을 사용하는 경우 (예 : vue-cli를 통해), Vue 및 VueRouter 가져 오기
+        //그리고 나서`Vue.use (VueRouter).
+
+        // 1. 경로 구성 요소를 정의하십시오 변수선언
+        // 다른 파일에서 가져올 수 있습니다.
+        const Foo = { template: '<div>Foo</div>' }
+        const Bar = { template: '<div>bar</div>' }
+
+        // 2. 몇 가지 경로를 정의.
+        // 각 경로는 구성 요소에 매핑되어야한다. "구성 요소"는
+        //를 통해 생성 된 실제 컴포넌트 생성자이거나
+        //`Vue.extend ()`, 또는 단지 구성 요소 옵션 객체.
+        // 나중에 중첩 된 라우트에 대해 이야기 할 것입니다.
+        const routes = [
+            { path: '/foo', component: Foo },
+            { path: '/bar', component: Bar }
+        ]
+
+        // 3. 라우터 인스턴스를 생성하고`routes` 옵션을 전달
+        // 여기에 추가 옵션을 전달할 수 있지만
+        // 지금은 간단하게 유지하도록 한다
+        const router = new VueRouter({
+            routes // 'routes : routes`의 줄임말 routes===routes:routes
+        })
+
+        // 4. 루트 인스턴스를 만들고 마운트한다.
+        // 라우터 옵션을 라우터에 삽입하여
+        // 전체 앱 라우터를 인식한다.
+        const app = new Vue({
+            router
+        }).$mount('#app')
+
+     
+        const User = {
+            template: '<div>User {{ $route.params.id }}</div>'
+        }
+
+        const router = new VueRouter({
+            routes: [
+                // 동적 세그먼트는 콜론으로 시작한다.
+                { path: '/user/:id', component: User }
+            ]
+        })
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
