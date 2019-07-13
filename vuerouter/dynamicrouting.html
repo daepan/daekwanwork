@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Vue-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--Vuerouter-->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,58 +16,17 @@
     <title>Vue</title>
 </head>
 
-
 <body>
-    <div id="app">
-        <h1>Hello, {{ name }}</h1>
-        <h2>{{ Date() }}</h2>
-        <img :src="hello ? hiing : hied" />
-
-        //true=>false
-    </div>
-    <div id="app2">
-        <div :class="classObject"></div>
-    </div>
-    <div id="app3">
-        <div :style="{ color: activeColor, fontSize: fontSize + 'px' }">{{message}}</div>
+    <div id="app1">
+        <p>
+            <router-link to="/user/foo">/user/foo</router-link>
+            <router-link to="/user/bar">/user/bar</router-link>
+        </p>
+        <router-view></router-view>
     </div>
 
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                name: '대관',
-                hello: true,
-                hiing: 'https://t1.daumcdn.net/cfile/tistory/991616465CC964C530',
-                hied: 'https://imgfiles-cdn.plaync.com/file/BladeNSoul/download/20190516094428-FayRz6gtk1iKqiV4BAmP0-v4'
-            }
-        })
-        var app2 = new Vue({
-            el: '#app2',
-            data: {
-                isActive: true,
-                error: null
-            },
-            computed: {
-                classObject: function () {
-                    return {
-                        active: this.isActive && !this.error,
-                        'text-danger': this.error && this.error.type === 'fatal'
-                    }
-                }
-            }
+    <script src="dynamicrouting.js"></script>
 
-        })
-        var app3 = new Vue({
-            el: '#app3',
-            data: {
-                message:'style-bind',
-                activeColor: 'red',
-                fontSize: 30
-            }
-        })
-
-    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

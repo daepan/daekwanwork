@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <title>Vue</title>
+</head>
+
+<body>
+
+    <div id="example">
+        <my-component></my-component>
+    </div>
+    <script>
+        // 등록
+        Vue.component('my-component', {
+            template: '<div>사용자 정의 컴포넌트 생성방법</div>'
+        })
+        // 루트 인스턴스 생성
+        new Vue({
+            el: '#example'
+        })
+    </script>
+
+    <div id="example2">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+    <script>
+        Vue.component('simple-counter', {
+            template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+            // 데이터는 기술적으로 함수이므로 Vue는 따지지 않지만
+            // 각 컴포넌트 인스턴스에 대해 같은 객체 참조를 반환한다.
+            data: function () {
+                return {
+                    counter: 0
+                }
+            }
+        })
+        var example2 = new Vue({
+            el: '#example2',
+        })
+    </script>
+
+    <div id="example3" class="demo">
+        <child message="안녕하세요!"></child>
+    </div>
+    <script>
+        new Vue({
+            el: '#example3',
+            components: {
+                child: {
+                    props: ['message'],
+                    template: '<span>{{ message }}</span>'
+                }
+            }
+        })
+    </script>
+
+    <div id="example4">
+        <input v-model="parentMsg">
+        <br>
+        <clid v-bind:my-message="parentMsg"></clid>
+    </div>
+    <script>
+        new Vue({
+            el: '#example4',
+            data: {
+                parentMsg: '부모로부터 전달 받은 메시지'
+            },
+            components: {
+                clid: {
+                    props: ['myMessage'],
+                    template: '<span>{{myMessage}}</span>'
+                }
+            }
+        })
+    </script>
+
+    <div id="example5">
+        <input v-model="msg">
+        <br>
+        <write :my-message="msg"></write>
+    </div>
+    <script>
+        Vue.component('example5', {
+            props: {
+                validator: function (value) {
+                    return value > 10
+                }
+            }
+        })
+
+        new Vue({
+            el: "#example5",
+            data: {
+                msg: '456123'
+            },
+            components: {
+                write: {
+                    props: ['myMessage'],
+                    template: '<span>{{myMessage}}</span>'
+                }
+            }
+        })
+    </script>
+
+    <div id="event-example">
+        <p>{{ total }}</p>
+        <button-counter v-on:increment="incrementTotal10"></button-counter>
+        <button-counter v-on:increment="incrementTotal1"></button-counter>
+    </div>
+    <script>
+        Vue.component('button-counter', {
+            template: '<button v-on:click="incrementCounter">{{ counter }}</button>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                incrementCounter: function () {
+                    this.counter += 1
+                    this.$emit('increment')
+                }
+            },
+        })
+
+        new Vue({
+            el: '#event-example',
+            data: {
+                total: 0
+            },
+            methods: {
+                incrementTotal1: function () {
+                    this.total += 1
+                },
+                incrementTotal10: function () {
+                    this.total += 10
+                }
+            }
+        })
+    </script>
+
+
+    <div id="ex" class="demo">
+        <currency-input v-model="price"></currency-input>
+    </div>
+
+    <script>
+        Vue.component('currency-input', {
+            template: '\
+    <span>\
+      $\
+      <input\
+        ref="input"\
+        v-bind:value="value"\
+        v-on:input="updateValue($event.target.value)"\
+      >\
+    </span>\
+  ',
+            props: ['value'],
+            methods: {
+                updateValue: function (value) {
+                    var formattedValue = value
+                        .trim()
+                        .slice(
+                            0,
+                            value.indexOf('.') === -1 ? value.length : value.indexOf('.') + 3
+                        )
+                    if (formattedValue !== value) {
+                        this.$refs.input.value = formattedValue
+                    }
+                    this.$emit('input', Number(formattedValue))
+                }
+            }
+        })
+        new Vue({
+            el: '#ex',
+            data: { price: '' }
+        })
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
