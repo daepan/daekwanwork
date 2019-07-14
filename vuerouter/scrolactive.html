@@ -17,9 +17,24 @@
 </head>
 
 <body>
-    
-
-    <script src="nestedroute.js"></script>
+        <style>
+                .fade-enter-active,
+                .fade-leave-active {
+                  transition: opacity 0.5s ease;
+                }
+                .fade-enter,
+                .fade-leave-active {
+                  opacity: 0;
+                }
+                .view {
+                  border: 1px solid red;
+                  height: 3500px;
+                  position: relative;
+                }
+              </style>
+              <div id="app0"></div>
+         여기까지 뷰라우터이다.
+    <script src="scrolactive.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
