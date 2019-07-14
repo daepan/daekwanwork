@@ -17,17 +17,24 @@
 </head>
 
 <body>
-    <div id="app1">
-        <p>
-            <router-link to="/user/foo">/user/foo</router-link>
-            <router-link to="/user/bar">/user/bar</router-link>
-        </p>
-        <router-view></router-view>
+    <div id="app4">
+            <h1>Named Views</h1>
+            <ul>
+              <li>
+                <router-link to="/myhomepage/vuerouter/namedview.html/">/</router-link>
+              </li>
+              <li>
+                <router-link to="/myhomepage/vuerouter/namedview.html/other">/other</router-link>
+              </li>
+            </ul>
+        <router-view class="view one" ></router-view>
+        <router-view class="view two" name="a"></router-view>
+        <router-view class="view three" name="b"></router-view>
+        <a href="redirest.html">리다이렉트</a>
     </div>
-    동적 라우트 매칭이란 주어진 패턴을 가진 라우트를 컴포넌트에 매핑해야하는 경우 사용한다.
+    <script src="namedview.js"></script>
+    
 
-    <script src="dynamicrouting.js"></script>
-    <a href="nestedroute.html">중첩된라우트</a>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
